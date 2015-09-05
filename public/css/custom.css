@@ -1,0 +1,303 @@
+/*!
+ * Start Bootstrap - Grayscale Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
+    background-color: #000;
+    background: url(../img/bodyBG_blur.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 35px;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+
+a {
+    color: #42dca3;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+    #footer {
+        background: #E8EEF4;
+        color: #7c8081;
+        padding: 5em 5em 10em 5em;
+        text-align: center;
+    }
+
+        #footer .copyright {
+            font-size: 0.8em;
+            line-height: 1em;
+        }
+
+            #footer .copyright a {
+                color: inherit;
+            }
+
+            #footer .copyright li {
+                display: inline-block;
+                margin-left: 1em;
+                padding-left: 1em;
+                border-left: dotted 1px;
+            }
+
+                #footer .copyright li:first-child {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                }
+
+
+.guide_text{
+  color: black;
+  font-family: -webkit-pictograph;
+  
+  text-align: left;
+}
+.link_color{
+    color: blue;
+}
+
+
+
+.txt_color{
+    color: #181717;
+}
+.sub_label{
+     color: #181717;
+     padding-top: 0px;
+}
+
+.text1{
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: capitalize;
+  letter-spacing: normal;
+}
+
+.sudlanan{
+background: #fff;
+background: rgba(255,255,255,0.9);
+margin-bottom: 20px;
+padding: 10px 10px;
+margin-top:100px;
+}
+
+
+.form_bg{
+  background:#F7F7F7;
+  padding:10px 10px;
+  border-radius:2px;
+  margin-top:100px;
+  }
+
+
+.sudlanan3{
+background: #fff;
+background: rgba(255,255,255,0.9);
+margin-bottom: 40px;
+padding: 10px 10px;
+margin-top:100px;
+border-radius: 10px;
+}
+
+.light {
+    font-weight: 400;
+}
+
+.navbar-custom {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #000;
+}
+
+.navbar-custom .navbar-brand {
+    font-weight: 700;
+}
+
+.navbar-custom .navbar-brand:focus {
+    outline: 0;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle {
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.navbar-custom .navbar-brand .navbar-toggle:focus,
+.navbar-custom .navbar-brand .navbar-toggle:active {
+    outline: 0;
+}
+
+.navbar-custom a {
+    color: #fff;
+}
+
+.navbar-custom .nav li a {
+    -webkit-transition: background .3s ease-in-out;
+    -moz-transition: background .3s ease-in-out;
+    transition: background .3s ease-in-out;
+}
+
+.navbar-custom .nav li a:hover {
+    outline: 0;
+    color: rgba(255,255,255,.8);
+    background-color: transparent;
+}
+
+.navbar-custom .nav li a:focus,
+.navbar-custom .nav li a:active {
+    outline: 0;
+    background-color: transparent;
+}
+
+.navbar-custom .nav li.active {
+    outline: 0;
+}
+
+.navbar-custom .nav li.active a {
+    background-color: rgba(255,255,255,.3);
+}
+
+.navbar-custom .nav li.active a:hover {
+    color: #fff;
+}
+
+@media(min-width:768px) {
+    .navbar-custom {
+        padding: 20px 0;
+        border-bottom: 0;
+        letter-spacing: 1px;
+        background: 0 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .navbar-custom.top-nav-collapse {
+        padding: 0;
+        border-bottom: 1px solid rgba(255,255,255,.3);
+        background: #000;
+    }
+}
+
+.icon {
+        text-decoration: none;
+        position: relative;
+    }
+
+        .icon:before {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            text-transform: none !important;
+        }
+
+        .icon.circle {
+            -moz-transition: all 0.2s ease-in-out;
+            -webkit-transition: all 0.2s ease-in-out;
+            -ms-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            border: 0;
+            border-radius: 100%;
+            display: inline-block;
+            font-size: 1.25em;
+            height: 2.25em;
+            left: 0;
+            line-height: 2.25em;
+            text-align: center;
+            text-decoration: none;
+            top: 0;
+            width: 2.25em;
+        }
+
+            .icon.circle:hover {
+                top: -0.2em;
+            }
+
+            .icon.circle.fa-twitter {
+                background: #70aecd;
+                color: #fff;
+            }
+
+                .icon.circle.fa-twitter:hover {
+                    background: #7fb7d2;
+                }
+
+            .icon.circle.fa-facebook {
+                background: #7490c3;
+                color: #fff;
+            }
+
+                .icon.circle.fa-facebook:hover {
+                    background: #829bc9;
+                }
+
+            .icon.circle.fa-google-plus {
+                background: #db6b67;
+                color: #fff;
+            }
+
+                .icon.circle.fa-google-plus:hover {
+                    background: #df7b77;
+                }
+
+            .icon.circle.fa-github {
+                background: #dcad8b;
+                color: #fff;
+            }
+
+                .icon.circle.fa-github:hover {
+                    background: #e1b89b;
+                }
+
+            .icon.circle.fa-dribbble {
+                background: #da83ae;
+                color: #fff;
+            }
+
+                .icon.circle.fa-dribbble:hover {
+                    background: #df93b8;
+                }
+
+        .icon.featured {
+            cursor: default;
+            display: block;
+            margin: 0 0 1.5em 0;
+            opacity: 0.35;
+            text-align: center;
+        }
+
+            .icon.featured:before {
+                font-size: 5em;
+                line-height: 1em;
+            }
+
+        .icon > .label {
+            display: none;
+        }
