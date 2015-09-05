@@ -117,7 +117,6 @@
 											$att = new Checkattendance();
 											$data = array();
 											$data = $att->loadrecentAttendee($_GET['session']);
-											echo var_export($data);
 											foreach($data as $row=>$key){
 												
 											?>

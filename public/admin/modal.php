@@ -131,54 +131,31 @@
 									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 										<thead>
 											<tr>
-												<th>Attendee Id</th>
-												<th>First Name</th>
-												<th>Last Name</th>
-												<th>Session</th>
+												<th>Barcode</th>
+												<th>Complete Name</th>
+												<th>Delegations</th>
+												<th>Date</th>
 													
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
+											<?php
+											$att = new Checkattendance();
+											$data = array();
+											$data = $att->loadrecentAttendee($_GET['session']);
+											foreach($data as $row=>$key){
 												
-
-											</tr>
+											?>
+											
 											<tr>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-												
-
+												<td><?=$key->barcode?></td>
+												<td><?=$key->del_fname . ' '. $key->del_lname?></td>
+												<td><?=$key->del_delegation?></td>
+												<td><?=$key->date?></td>
 											</tr>
-											<tr>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-											</tr>
-											<tr>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-											</tr>
-											<tr>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-											</tr>
-											<tr>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-												<td>q</td>
-											</tr>
+											<?php
+											}
+											?>
 
 										</tbody>
 									</table>

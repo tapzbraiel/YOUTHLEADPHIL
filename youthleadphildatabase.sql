@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Sep 05, 2015 at 04:56 AM
--- Server version: 5.5.24-log
--- PHP Version: 5.4.3
+-- Host: 127.0.0.1
+-- Generation Time: Sep 05, 2015 at 02:02 PM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -30,8 +30,18 @@ CREATE TABLE IF NOT EXISTS `tbl_attendance` (
   `attendance_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `delegates_id` int(10) unsigned NOT NULL,
   `session_id` int(10) unsigned NOT NULL,
+  `session_date` varchar(45) NOT NULL,
   PRIMARY KEY (`attendance_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `tbl_attendance`
+--
+
+INSERT INTO `tbl_attendance` (`attendance_id`, `delegates_id`, `session_id`, `session_date`) VALUES
+(1, 6, 2, '2015-09-05 16:00:47'),
+(2, 6, 2, '2015-09-05 16:02:13'),
+(3, 5, 2, '2015-09-05 17:21:55');
 
 -- --------------------------------------------------------
 
@@ -95,6 +105,24 @@ INSERT INTO `tbl_delegates_info` (`del_id`, `del_delegation`, `del_fname`, `del_
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `tbl_delegate_attendance`
+--
+CREATE TABLE IF NOT EXISTS `tbl_delegate_attendance` (
+`session_id` int(10) unsigned
+,`attendance_id` int(10) unsigned
+,`del_id` int(10) unsigned
+,`barcode` varchar(15)
+,`session_date` varchar(45)
+,`del_delegation` varchar(45)
+,`del_fname` varchar(45)
+,`del_lname` varchar(45)
+,`del_bdate` date
+,`del_sex` varchar(45)
+,`del_contact` varchar(45)
+);
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_delegations`
 --
 
@@ -151,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `tbl_session` (
 --
 
 INSERT INTO `tbl_session` (`session_id`, `session_name`, `day_no`, `session_start`, `session_end`, `is_active`) VALUES
-(2, 'am session', '1', '04:00:00', '06:00:00', 1);
+(2, 'AM SESSION IN', '1', '15:00:00', '19:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -165,7 +193,23 @@ CREATE TABLE IF NOT EXISTS `tbl_user_account` (
   `password` varchar(45) NOT NULL,
   `user_type` varchar(45) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `tbl_user_account`
+--
+
+INSERT INTO `tbl_user_account` (`user_id`, `username`, `password`, `user_type`) VALUES
+(1, 'admin', 'admin', 'checker');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `tbl_delegate_attendance`
+--
+DROP TABLE IF EXISTS `tbl_delegate_attendance`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `tbl_delegate_attendance` AS select `at`.`session_id` AS `session_id`,`at`.`attendance_id` AS `attendance_id`,`di`.`del_id` AS `del_id`,if(isnull(`db`.`delegates_barcode`),'Not yet entered',`db`.`delegates_barcode`) AS `barcode`,`at`.`session_date` AS `session_date`,`di`.`del_delegation` AS `del_delegation`,`di`.`del_fname` AS `del_fname`,`di`.`del_lname` AS `del_lname`,`di`.`del_bdate` AS `del_bdate`,`di`.`del_sex` AS `del_sex`,`di`.`del_contact` AS `del_contact` from ((`tbl_delegates_info` `di` left join `tbl_delegates_barcode` `db` on((`di`.`del_id` = `db`.`delegates_id`))) join `tbl_attendance` `at` on((`di`.`del_id` = `at`.`delegates_id`))) group by `di`.`del_id` order by `at`.`session_date`;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
