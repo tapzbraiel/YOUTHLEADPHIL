@@ -1,16 +1,7 @@
 <?php
-	if(empty($_GET['session'])){
-		header('location:../login.php');
-	}
-	else{
-	
+	include('inc/header.php');
 ?>
 <?php
-
-	include('inc/header.php');
-	include('../../classes/class.checkattendance.php');
-	include('../../classes/class.delegation.php');
-	include('../../classes/class.delegate.php');
 	include('menus/public-top_menu.php');
 ?>
 
@@ -71,7 +62,6 @@
 										<div class="control-group">
 											<div class="controls">
 												<input tabindex="0" required class="input-xlarge text-center span12 focused" name="attendeeID" id="attendeeID"  type="text">
-												<input name="session" id="session"  type="hidden" value="<?=$_GET['session'] ?>">
 											</div>
 										</div>
 											<button class="btn btn-primary pull-right" type="submit" >SUBMIT</button>
@@ -105,31 +95,55 @@
 									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 										<thead>
 											<tr>
-												<th>Barcode</th>
-												<th>Complete Name</th>
-												<th>Delegations</th>
-												<th>Date</th>
+												<th>Attendee Id</th>
+												<th>First Name</th>
+												<th>Last Name</th>
+												<th>Session</th>
 													
 											</tr>
 										</thead>
 										<tbody>
-											<?php
-											$att = new Checkattendance();
-											$data = array();
-											$data = $att->loadrecentAttendee($_GET['session']);
-											foreach($data as $row=>$key){
-												
-											?>
-											
 											<tr>
-												<td><?=$key->barcode?></td>
-												<td><?=$key->del_fname . ' '. $key->del_lname?></td>
-												<td><?=$key->del_delegation?></td>
-												<td><?=$key->date?></td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												
+
 											</tr>
-											<?php
-											}
-											?>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												
+
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
+
 										</tbody>
 									</table>
 								</div>
@@ -141,6 +155,5 @@
 </div>
 
 <?php
-	}
 	include('inc/footer.php');
 ?>

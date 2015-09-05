@@ -1,48 +1,34 @@
-
 <?php
 	include('inc/header.php');
-	include('../../classes/class.delegate.php');
-	include('../../classes/class.delegation.php');
-	include('../../classes/class.checkattendance.php');
+?>
+<?php
 	include('menus/public-top_menu.php');
-	if(empty($_GET['attendeeID'])&&empty($_GET['session_id'])){
-		header('location:attendancestart.php');
-	}
-	else{
-	
-?><?php
-															$d = new Delegates();
-															$d->barcode = $_GET['attendeeID'];
-															$del = array();
-															$del = $d->loadDelegateswithID();
-															foreach($del as $key => $row){
-																?>
-														
+?>
 					<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" id="order" class="modal fade">
 		                <div class="modal-dialog">
 		                  <div class="modal-content">
 		                      <div class="modal-header">
 		                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                          <h4 class="modal-title">Delegate Information</h4>
+		                          <h4 class="modal-title">Delegate Information (ID: <?= $_GET['attendeeID'] ?>)</h4>
 		                      </div>
 		                     	  <div class="modal-body">
 										
 										<div class="col-md-6">
 										<img src="" class="img img-responsive">
 
-											<form method="POST" action="../../functions/checkattendee.php?session_id=<?=$_GET['session_id']?>&del_id=<?=$row->del_id ?>">
+											<form method="POST" action="../../functions/checkattendee.php?attendeeID=<?=$_GET['attendeeID']?>&pref_id=<?=$_GET['pref_id']?>">
+												<div class="control-group">
+													<img src="bootstrap/img/glyphicons-halflings.png" width="150px" height="150px" class="align_center img img-responsive">
+												</div>
 												<div class="control-group">
 													<div class="controls">
-														<label>Barcode</label>
-														<input class="input-xlarge focused span2" value="<?= $_GET['attendeeID'] ?>" disabled=""  type="text">
-													</div>
+														<label>Full Name</label>
+														<input class="input-xlarge focused span4" value="" disabled=""  type="text">
+														</div>
 													<div class="controls">
-														<label>Complete Name</label>
-														
-												<input class="input-xlarge focused span4" value="<?=$row->del_fname.' '.$row->del_lname ?>" disabled=""  type="text">			
-												
+														<label>Nickname</label>
+														<input class="input-xlarge focused span2" value="" disabled=""  type="text">
 													</div>
-													
 													
 												</div>
 													<button class="btn btn-primary pull-right" type="submit" autofocus>ENTER</button>
@@ -59,9 +45,6 @@
 			        $('#order').modal('show');
 			    });
 			</script>
-			<?php		
-															}
-														?>
 <div class="container-fluid">
 	
 	<div class="span12">
@@ -131,31 +114,54 @@
 									<table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example">
 										<thead>
 											<tr>
-												<th>Barcode</th>
-												<th>Complete Name</th>
-												<th>Delegations</th>
-												<th>Date</th>
+												<th>Attendee Id</th>
+												<th>First Name</th>
+												<th>Last Name</th>
+												<th>Session</th>
 													
 											</tr>
 										</thead>
 										<tbody>
-											<?php
-											$att = new Checkattendance();
-											$data = array();
-											$data = $att->loadrecentAttendee($_GET['session']);
-											foreach($data as $row=>$key){
-												
-											?>
-											
 											<tr>
-												<td><?=$key->barcode?></td>
-												<td><?=$key->del_fname . ' '. $key->del_lname?></td>
-												<td><?=$key->del_delegation?></td>
-												<td><?=$key->date?></td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												
+
 											</tr>
-											<?php
-											}
-											?>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												
+
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
+											<tr>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+												<td>q</td>
+											</tr>
 
 										</tbody>
 									</table>
@@ -167,8 +173,6 @@
 </div>
 
 <?php
-	
-	}
 	include('inc/footer.php');
 ?>
 							

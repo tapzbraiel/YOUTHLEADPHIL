@@ -23,20 +23,6 @@ class Useraccount{
 		}
 		return $ret_val;
 	}
-	function chklogin(){
-		$sql="SELECT * FROM `tbl_user_account` WHERE username='".$this->user_name."'
-												 AND password='".$this->password."' 
-												 AND user_type='".$this->user_type."'";
-		$result=Database::$conn->query($sql);
-		if($result->num_rows > 0){
-			return TRUE;
-		}
-		else{
-			return FALSE;
-		}
-		return $ret_val;							 
-		
-	}
 
 }
 ?>

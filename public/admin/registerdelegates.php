@@ -58,7 +58,7 @@
 											<div class="modal-body">
 								<form method="GET" action="../../functions/delegates_register.php">
 							    	<div class="control-group">
-				                	<label class="control-label">Delelgates Delegation<span>:</span></label>
+				                	<label class="control-label">Delegates Delegation<span>:</span></label>
 				                		<div class="controls">
 				                			<select name="delegation" class=" span12 m-warp">
 				                				<?php
@@ -144,7 +144,7 @@
                                       <hr>
                                       
                                    </div>
-                                   <table class="table table-striped table-bordered" id="example2">
+                                   <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered" id="example2">
                                         <thead>
                                             <tr>
                                                 <th>Barcode Id</th>

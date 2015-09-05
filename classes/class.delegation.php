@@ -37,6 +37,12 @@ class Delegation{
 		}
 		return $ret_val;
 	}
+
+	function deleteDelegation($id){
+		$sql = "DELETE FROM `tbl_delegations` WHERE delegation_id = ".$id."";
+
+		return Database::$conn->query($sql);
+	}
 }
 
 

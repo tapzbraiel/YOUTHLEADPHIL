@@ -141,7 +141,7 @@
 															  <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Action <span class="caret"></span></button>
 															  <ul class="dropdown-menu">
 																<li><a href="#">Edit</a></li>
-																<li><a href="delegationDelete.php?id=<?= $del->delegation_id .'&name=' . $del->delegation_name?>"  data-toggle="modal">Delete</a></li>
+					<li><a href="delegationDelete.php?delegation_id=<?= $del->delegation_id .'&name=' . $del->delegation_name?>"  data-toggle="modal">Delete</a></li>
 															  </ul>
 															</div>
 										                  </td>
@@ -153,6 +153,35 @@
 										              </tbody>
 										            </table>
 				                                </div>
+
+
+				                            <div id="deleteModal" class="modal hide">
+											<div class="modal-header">
+												<button data-dismiss="modal" class="close" type="button">&times;</button>
+												<h3>Alert!</h3>
+											</div>
+											<div class="modal-body">
+									<form method="POST" action="../../functions/delete_delegation.php?id=<?=$_GET['id']?>">
+										<div class="control-group">
+					                	<label class="control-label">Are you sure you want to delete this Delegation<span>?</span></label>
+					                		<div class="controls">
+					                			<input value="<?=$_GET['name']?>" class="input-xlarge span12 focused" disabled="" name="delname" type="text" placeholder="Delagationn Name">
+					                		</div>
+					                	</div>
+					                	
+												<button class="btn btn-primary" type="submit">SAVE</button>
+									</form>
+											</div>
+											<div class="modal-footer">
+												
+											</div>
+										</div>
+										<script type="text/javascript">
+										    $(window).load(function(){
+										        $('#deleteModal').modal('show');
+										    });
+										</script>
+
 				                            </div>
 				                            <div class="container-fluid">
 				                            	

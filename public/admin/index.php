@@ -12,12 +12,6 @@
                                 <a href="index.php"></i> Dashboard</a>
                             </li>
                         </ul>
-                         <ul  class="nav nav-list bs-docs-sidenav nav-collapse collapse">
-                            <li class="dropdown">
-                                <a href="registerdelegates" role="button" class="dropdown-toggle" data-toggle="dropdown"> Registration</a>
-                                
-                            </li>
-                        </ul>
                          <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                             
                             <li>
@@ -25,7 +19,19 @@
                             </li>
                             
                         </ul>
-                       
+                        <ul  class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+                            <li class="dropdown">
+                                <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> Registration</a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a tabindex="-1" href="adddelegations.php">Add Delegations</a>
+                                    </li>
+                                    <li>
+                                        <a tabindex="-1" href="registerdelegates.php">Register Delegates</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                         <ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
                             
                            <li>

@@ -8,7 +8,24 @@
 
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
-                        <a class="page-scroll" href="adminlogin.php">Login as admin</a>
+                   
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="Home.php">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="Reg_GUIDE.php">Register</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact Us</a>
+                    </li>
+                     <li>
+                        <a class="page-scroll" href="#contact">About Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="login.php">Login</a>
                     </li>
                 </ul>
             </div>

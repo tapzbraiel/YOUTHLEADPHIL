@@ -2,7 +2,7 @@
 	include('inc/header.php');
 	include('menus/public-top_menu.php');
 	include('../../classes/class.pagination.php');
-	include('../../classes/class.delegation.php');
+	include('../../classes/class.session.php');
 ?>
 
 	
@@ -49,6 +49,56 @@
 
 
                 	<div class="span9" id="content">
+
+
+                		<div id="myAlert" class="modal hide">
+								<div class="modal-header">
+									<button data-dismiss="modal" class="close" type="button">&times;</button>
+									<h3>ADD NEW SESSION</h3>
+								</div>
+								<div class="modal-body">
+								<form method="GET" action="../../functions/savesession.php">
+				                	<div class="control-group">
+				                	<label class="control-label">Session Name<span>:</span></label>
+				                		<div class="controls">
+				                			<input class="input-xlarge span12 focused" name="sessionname" type="text" placeholder="Session Name">
+				                		</div>
+				                	</div>
+				                	<div class="control-group">
+				                	<label class="control-label">Day Number<span>:</span></label>
+				                		<div class="controls">
+				                			<input class="input-xlarge span12 focused" name="dayno" type="text" placeholder="eg.: 1">
+				                		</div>
+				                	</div>
+				                	<div class="control-group">
+				                	<label class="control-label">Session Start Time:<span class="required">eg.: 12:00 AM</span></label>
+				                		<div class="controls">
+				                			<input class="input-xlarge span12 focused" name="starttime" type="time">
+				                		</div>
+				                	</div>
+				                	<div class="control-group">
+				                	<label class="control-label">Session End Time:<span class="required">eg.: 12:00 AM</span></label>
+				                		<div class="controls">
+				                			<input class="input-xlarge span12 focused" name="endtime" type="time">
+				                		</div>
+				                	</div>
+				                	<div class="control-group">
+				                   		<div class="controls">
+				                			<input class="input-xlarge span12 focused" value="0" name="action" type="hidden">
+				                		</div>
+				                	</div>
+											<button class="btn btn-primary" type="submit">SAVE</button>
+
+				               		 </form>
+											</div>
+											<div class="modal-footer">
+												
+											</div>
+									</div>
+
+
+
+
 				                        <!-- block -->
 						<div class="block">
 				            <div class="navbar navbar-inner block-header">
@@ -57,55 +107,69 @@
 				            <div class="block-content collapse in">
 				                
 
+				                <div class="col-md-12">
+				                                <div class="table-toolbar">
+				                                      <div class="btn-group">
+				                                         <a href="#myAlert" data-toggle="modal"><button class="btn btn-success">Add New <i class="icon-plus icon-white"></i></button></a>
+				                                      </div>
+				                                      <div class="btn-group pull-right">
+				                                         <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
+				                                         <ul class="dropdown-menu">
+				                                            <li><a href="#">Print</a></li>
+				                                            <li><a href="#">Save as PDF</a></li>
+				                                            <li><a href="#">Export to Excel</a></li>
+				                                         </ul>
+				                                      </div>
+                                   </div>
+                                   <hr>
+				  									<table class="table table-striped table-bordered" id="example2">
+										              <thead>
+										                <tr>
+										                  <th>Session Name</th>
+										                  <th>Day</th>
+										                  <th>Session Start</th>
+										                  <th>Session End</th>
+										                  <th>Action</th>
+										                </tr>
+										              </thead>
+										              <tbody>
+										              <?php
+										              	$s =  new Session();
+										              	$list_of_session = array();
+
+										              	$list_of_session=$s->loadsession();
+										              	foreach ($list_of_session as $ses) {
+				
+										              ?>
+										                <tr>
+										                  <td><?php echo $ses->session_name ?></td>
+										                  <td><?php echo $ses->day_no ?></td>
+										                  <td><?php echo $ses->session_start ?></td>
+										                  <td><?php echo $ses->session_end ?></td>
+										                  <td>
+										                  	<div class="btn-group pull-right">
+															  <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Action <span class="caret"></span></button>
+															  <ul class="dropdown-menu">
+																<li><a href="#">Set as active</a></li>
+																<li><a href="#">Edit</a></li>
+															  </ul>
+															</div>
+										                  </td>
+										                </tr>
+										              <?php
+										              	}
+										              ?>
+										              </tbody>
+										            </table>
+				                                </div>
 				                
 				                
-				                <form method="post" action="../../functions/savepreferences.php">
-				                	<h3>ADD NEW SESSION</h3>
-				                	<hr>
-
-				                	<div class="control-group">
-				                	<label>Session Title:</label>
-				                		<div class="controls">
-				                			<input  class="input-xlarge span6 focused" name="sessiontitle" type="text" placeholder="Session Title">
-				                		</div>
-				                	</div>
-				                	<div class="control-group">
-				                	<label>Day:</label>
-				                		<div class="controls">
-				                			<input class="input-xlarge span6 focused" name="dayno" type="text" placeholder="Day Number">
-				                		</div>
-				                	</div>
-				                	<div class="control-group">
-				                	<label class="control-label">Start Time <span class="required">eg. 12:00 AM</span></label>
-				                		<div class="controls">
-				                			<input  class="input-xlarge span6 focused" name="starttime" type="time" placeholder="">
-				                		</div>
-				                	</div>
-				                	<div class="control-group">
-				                	<label class="control-label">Start End <span class="required">eg. 1:00 AM</span></label>
-				                		<div class="controls">
-				                			<input class="input-xlarge span6 focused" name="endtime" type="time" placeholder="End Time">
-				                		</div>
-				                	</div>
-
-				                	<div class="control-group">
-				                		<div class="controls">
-				                		<label>
-				                			<input class="uniform_on" type="checkbox" id="optionsCheckbox" value="option1">
-				                			Check this for delayed entry..
-				                		</label>
-				                		</div>
-				                	</div>
-											<button class="btn btn-primary" type="submit">SUBMIT</button>
-
-				                </form>
 							</div>
 				        </div>
 				                            
 
 
 				    </div>
-				                        <!-- /block -->
 				    </div>
 				    </div>				                   
 </div>

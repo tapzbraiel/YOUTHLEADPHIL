@@ -16,5 +16,15 @@
     <script src="../js/jquery.easing.min.js"></script>
 
 -->
+<footer id="footer">
+	<ul>
+			<!--<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+			<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+			<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+			-->
+			<b>&copy YOUTH LEAD PHILIPPINES - </b>All Right Reserved
 
+	</ul>
+	
+</footer>
 </html>
